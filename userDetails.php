@@ -27,8 +27,10 @@ foreach ($user as $data) {
                         <p class="card-text mt-2 text-muted"><?= $data['body_content'] ?></p>
                     </div>
                     <div class="d-flex flex-column justify-content-around align-items-center col-md-2">
-                        <a class="btn btn-danger w-50" name="discard_btn" href="?id=<?= $data['id'] ?>">Discard</a>
-                        <a class="btn btn-primary w-50" name="update_btn">Update</a>
+                        <a class="btn btn-danger w-50" name="discard_btn" 
+                        href="?id=<?= $data['id'] ?>">Discard</a>
+                        <a class="btn btn-primary w-50" name="update_btn"
+                        href="updatehere.php?id=<?= $data['id'] ?>">Update</a>
                     </div>
                 </div>
             </div>
