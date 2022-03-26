@@ -134,3 +134,23 @@ if (isset($_POST['upload_btn'])) {
     }
 }
 
+if (isset($_POST['delete_multiple_btn'])) {
+    $all_id = $_POST['record_del_id'];
+    $extract_id = implode(',', $all_id);
+    // echo $extract_id;
+    $delete_multiple_data = $Authenticate->deleteMultipleData($extract_id);
+    if ($delete_multiple_data) {
+        redirect("User Data Deleted Successfully!", "userDetails.php");
+    } else {
+        redirect("User data's not deleted try again", "userDetails.php");
+    }
+}
+
+
+if (isset($_GET['search_btn'])) {
+    $filterValues = $_GET['search'];
+    $getValues = $Authenticate->searchBooks($filterValues);
+    if ($getValues) {
+        return true;
+    } else return false;
+}

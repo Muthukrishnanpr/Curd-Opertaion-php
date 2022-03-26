@@ -74,4 +74,18 @@ class authenticationController
         return $result;
     }
 
+    public function deleteMultipleData($extract_id)
+    {
+        $query = "DELETE FROM user_post WHERE id IN($extract_id)";
+        $result = $this->conn->query($query);
+        return $result;
+    }
+
+    public function searchBooks($filterValues)
+    {
+        $query = "SELECT * FROM user_post WHERE title LIKE %$filterValues%";
+        $result = $this->conn->query($query);
+        $posts = $result->fetch_asssoc();
+       echo $posts;
+    }
 }
